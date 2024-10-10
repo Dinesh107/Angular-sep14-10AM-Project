@@ -1,0 +1,16 @@
+<app-form (bikesAdded)="bikeDataUpdated($event)"></app-form>
+
+<p>list works!</p>
+
+<div *ngIf = "bikes.length > 0; then bikeList; else noData"></div>
+
+<ng-template #bikeList> 
+    <ul>
+        <li *ngFor="let bikeName of bikes">{{bikeName}}</li>
+    </ul>
+</ng-template>
+
+<ng-template #noData> 
+    <p>No Data in the List</p>
+</ng-template>
+

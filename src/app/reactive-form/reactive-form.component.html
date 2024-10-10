@@ -1,0 +1,61 @@
+
+<div class="container">
+    <h3>reactive-form</h3>
+    <form [formGroup]="contactForm" (submit)="onSubmit()">
+        <p>
+          <label for="firstname">First Name:</label>
+          <input id="firstname" name="firstname" type="text" formControlName="firstName"/>
+        </p>
+    
+        <p>
+          <label for="lastname">Last Name:</label>
+          <input id="lastname" name="lastname" type="text" formControlName="lastName"/>
+        </p>
+    
+        <p>
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" formControlName="email" />
+        </p>
+    
+        <p>
+          <label for="gender">Gender:</label>
+          Male <input type="radio" value="male" id="gender" name="gender" formControlName="gender" > 
+          Female <input type="radio" value="female" id="gender" name="gender" formControlName="gender" >
+        </p>
+    
+        <p>
+          <label for="ismarried">Married:</label>
+          <input id="isMarried" type="checkbox" name="isMarried" formControlName="isMarried"/>
+        </p>
+    
+        <p>
+            <label for="country">Country</label>
+            <select name="country" id="country" formControlName="country">
+                <option  selected="" value="">Select</option>
+                  <option value="USA">USA</option>
+                  <option value="UK">UK</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Germany">Germany</option>
+            </select>
+        </p>
+        <div formGroupName="address">
+          <p>
+            <label for="city">City</label>
+            <input type="text" name="city" formControlName="city">
+          </p>
+          <p>
+            <label for="street">Street</label>
+            <input type="text" name="street" formControlName="street">
+          </p>
+          <p>
+            <label for="pincode">Pincode</label>
+            <input type="text" name="pincode" formControlName="pincode"> 
+          </p>
+        </div>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+    
+</div>

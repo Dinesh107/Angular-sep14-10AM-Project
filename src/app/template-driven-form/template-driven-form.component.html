@@ -1,0 +1,56 @@
+<p>template-driven-form works!</p>
+<h3>template-driven-form</h3>
+<form #contactForm="ngForm" (submit) = "onSubmit(contactForm)">
+    <p>
+      <label for="firstname">First Name:</label>
+      <input id="firstname" name="firstname" type="text" [(ngModel)]="contact.firstName" required/>
+    </p>
+
+    <p>
+      <label for="lastname">Last Name:</label>
+      <input id="lastname" name="lastname" type="text" [(ngModel)]="contact.lastName"/>
+    </p>
+
+    <p>
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="email" [(ngModel)]="contact.email"/>
+    </p>
+
+    <p>
+      <label for="gender">Gender:</label>
+      Male <input type="radio" value="male" id="gender" name="gender" [(ngModel)]="contact.gender"> 
+      Female <input type="radio" value="female" id="gender" name="gender" [(ngModel)]="contact.gender">
+    </p>
+
+    <p>
+      <label for="ismarried">Married:</label>
+      <input id="isMarried" type="checkbox" name="isMarried" [(ngModel)]="contact.isMarried"/>
+    </p>
+
+    <p>
+        <label for="country">Country</label>
+        <select name="country" id="country" [(ngModel)]="contact.country">
+            <option  selected="" value="">Select</option>
+            <option  [ngValue] = "country.id" *ngFor="let country of countryList">
+              {{country.name}}
+            </option>
+        </select>
+    </p>
+    <div ngModelGroup="address">
+      <p>
+        <label for="city">City</label>
+        <input type="text" name="city" [(ngModel)]="contact.address.city">
+      </p>
+      <p>
+        <label for="street">Street</label>
+        <input type="text" name="street" [(ngModel)]="contact.address.street">
+      </p>
+      <p>
+        <label for="pincode">Pincode</label>
+        <input type="text" name="pincode" [(ngModel)]="contact.address.pincode">
+      </p>
+    </div>
+    <p>
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+    </p>
+</form>
